@@ -1,0 +1,51 @@
+{
+  "name": "cross-platform-aws-app",
+  "version": "1.0.0",
+  "description": "Cross-platform learning application with AWS services",
+  "private": true,
+  "workspaces": [
+    "backend/lambdas",
+    "frontend/web",
+    "frontend/mobile",
+    "shared/*"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:backend && npm run install:web && npm run install:mobile",
+    "install:backend": "cd backend/lambdas && npm install",
+    "install:web": "cd frontend/web && npm install",
+    "install:mobile": "cd frontend/mobile && npm install",
+    "build": "npm run build:backend && npm run build:web",
+    "build:backend": "cd backend/lambdas && npm run build",
+    "build:web": "cd frontend/web && npm run build",
+    "dev:backend": "cd backend/lambdas && npm run dev",
+    "dev:web": "cd frontend/web && npm run dev",
+    "dev:mobile": "cd frontend/mobile && npm run start",
+    "test": "npm run test:backend",
+    "test:backend": "cd backend/lambdas && npm run test",
+    "test:load:smoke": "k6 run tests/load/smoke.js",
+    "test:load": "k6 run tests/load/load-test.js",
+    "lint": "npm run lint:backend && npm run lint:web",
+    "lint:backend": "cd backend/lambdas && npm run lint",
+    "lint:web": "cd frontend/web && npm run lint",
+    "typecheck": "npm run typecheck:backend && npm run typecheck:web",
+    "typecheck:backend": "cd backend/lambdas && npm run typecheck",
+    "typecheck:web": "cd frontend/web && npm run typecheck",
+    "infra:init": "cd infrastructure/terraform/environments/dev && terraform init",
+    "infra:plan": "cd infrastructure/terraform/environments/dev && terraform plan",
+    "infra:apply": "cd infrastructure/terraform/environments/dev && terraform apply"
+  },
+  "keywords": [
+    "aws",
+    "serverless",
+    "lambda",
+    "react",
+    "react-native",
+    "terraform",
+    "postgresql"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "backend-lambdas",
+  "version": "1.0.0",
+  "description": "Lambda functions for cross-platform AWS app",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/handlers/*.ts --bundle --platform=node --target=node20 --outdir=dist --format=esm --external:@aws-sdk/*",
+    "dev": "sam local start-api --warm-containers EAGER",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/logger": "^2.0.0",
+    "@aws-lambda-powertools/tracer": "^2.0.0",
+    "@aws-sdk/client-secrets-manager": "^3.400.0",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.130",
+    "@types/node": "^20.10.0",
+    "@types/pg": "^8.10.0",
+    "esbuild": "^0.19.0",
+    "eslint": "^8.55.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  }
+}
