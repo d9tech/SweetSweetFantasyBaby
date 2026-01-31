@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.js.map
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+
+# Lambda build artifacts
+backend/lambdas/dist/
+infrastructure/terraform/modules/*/.builds/
+
+# Test outputs
+coverage/
+*.lcov
+test-results/
+results.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# AWS
+.aws-sam/
+samconfig.toml
+
+# Mobile
+frontend/mobile/.expo/
+frontend/mobile/ios/
+frontend/mobile/android/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Misc
+*.pem
+.cache/
